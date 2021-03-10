@@ -1,13 +1,11 @@
-
 module.exports = {
-    networks: {
-        development: {
-            host: '127.0.0.1',
-            port: 8545,
-            network_id: '*',
-        },
-      
-      testnet: {
+  networks: {
+    development: {
+      host: "127.0.0.1",     // Localhost (default: none)
+      port: 8545,            // Standard BSC port (default: none)
+      network_id: "*",       // Any network (default: none)
+    },
+    testnet: {
       provider: () => new HDWalletProvider(mnemonic, `https://data-seed-prebsc-1-s1.binance.org:8545`),
       network_id: 97,
       confirmations: 10,
@@ -21,22 +19,16 @@ module.exports = {
       timeoutBlocks: 200,
       skipDryRun: true
     },
-    },
+  },
 
-    mocha: {
-        reporter: 'eth-gas-reporter',
-    },
+  // Set default mocha options here, use special reporters etc.
+  mocha: {
+    // timeout: 100000
+  },
 
+  // Configure your compilers
+  compilers: {
     solc: {
-        optimizer: {
-            enabled: true,
-            runs: 200,
-        },
-    },
-
-    compilers: {
-        solc: {
-            version: '0.5.2',
-        },
-    },
-};
+    }
+  }
+}
